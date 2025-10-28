@@ -7,6 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <TabControl>
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5">
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Height="386" VerticalAlignment="Center" Width="774">
+                        <TextBlock TextWrapping="Wrap" Text="TextBlock" Width="600" Height="40" VerticalAlignment="Top" Margin="86,9,86,0"/>
+                    </Border>
+                </Grid>
+            </TabItem>
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
 
     </Grid>
 </Window>
