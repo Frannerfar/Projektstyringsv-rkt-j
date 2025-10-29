@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Projektstyring.Models;
 
 namespace Projektstyring
 {
@@ -20,5 +21,26 @@ namespace Projektstyring
         {
             InitializeComponent();
         }
+
+
+        // Efter lidt research, så skal vi bruge Color fra System.Windows.Media, da det er til WPF.
+        // Har lavet eksempler på de 3 stages, som alle tager imod colors på forskellige måder.
+        // Vi kan gennemgå det sammen, hvis der er spørgsmål til color codes.
+
+        // RGBA Color
+        Stage notdoing = new Stage("Not Doing", Color.FromArgb(100, 100, 100, 100));
+        
+        // HEX Color
+        Stage doing = new Stage("Doing", (Color)ColorConverter.ConvertFromString("#FFB0B0B0"));
+
+        // Pre-defineret colors i .NET WPF
+        Stage done = new Stage("Done", Colors.Green);
+
+
+
+        // Jeg har ændet Class navn fra Task til TaskItem, da Task er type til async operationer, som vi ikke har været igennem.
+        // TODO: Vi mangler at lave constructor, så hver task bliver oprettet korrekt og derefter kan tilføjes til Stage liste.
+        TaskItem test = new TaskItem();
     }
+
 }
