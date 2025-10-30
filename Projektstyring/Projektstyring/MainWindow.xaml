@@ -7,18 +7,17 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TabControl>
-            <TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5">
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Height="386" VerticalAlignment="Center" Width="774">
-                        <TextBlock TextWrapping="Wrap" Text="TextBlock" Width="600" Height="40" VerticalAlignment="Top" Margin="86,9,86,0"/>
-                    </Border>
-                </Grid>
-            </TabItem>
-            <TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-        </TabControl>
-
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Height="414" VerticalAlignment="Center" Width="780">
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="394" Margin="20,0,0,0" VerticalAlignment="Center" Width="165">
+                <Label Content="Label" Margin="-1,-1,-1,348" FontSize="24"/>
+            </Border>
+        </Border>
+        <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Margin="31,63,607,23">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>
