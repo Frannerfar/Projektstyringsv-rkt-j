@@ -9,14 +9,15 @@ namespace Projektstyring.Models
 {
     class Stage
     {
-        string title;
-        List<TaskItem> tasks = new List<TaskItem>();
-        Color backgroundColor;
+        public string title;
+        public List<TaskItem> tasks = new List<TaskItem>();
+        public Color backgroundColor;
 
         public Stage(string titleInput, Color colorInput)
         {
             title = titleInput;
             backgroundColor = colorInput;
+            
         }
     }
 }

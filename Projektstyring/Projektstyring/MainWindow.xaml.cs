@@ -20,36 +20,123 @@ namespace Projektstyring
         public MainWindow()
         {
             InitializeComponent();
+            // Efter lidt research, så skal vi bruge Color fra System.Windows.Media, da det er til WPF.
+            // Har lavet eksempler på de 3 stages, som alle tager imod colors på forskellige måder.
+            // Vi kan gennemgå det sammen, hvis der er spørgsmål til color codes.
+
+            // RGBA Color
+            Stage notdoing = new Stage("Not Doing", Color.FromArgb(100, 100, 100, 100));
+        
+            // HEX Color
+            Stage doing = new Stage("Doing", (Color)ColorConverter.ConvertFromString("#FFB0B0B0"));
+
+            // Pre-defineret colors i .NET WPF
+            Stage done = new Stage("Done", Colors.Green);
+
+            // Dinas tilføjelse af en ny stage, i HEX Color
+            Stage dinaiseret = new Stage("Dinaiset", (Color)ColorConverter.ConvertFromString("#FFFF00FF"));
+
+
+
+
+            // Jeg har ændet Class navn fra Task til TaskItem, da Task er type til async operationer, som vi ikke har været igennem.
+            // TODO: Vi mangler at lave constructor, så hver task bliver oprettet korrekt og derefter kan tilføjes til Stage liste.
+
+            TaskItem test = new TaskItem(
+                "Feje gulv", 
+                "Gulvet skal fejes grundigt", 
+                "Konrad", 
+                new DateTime(new DateOnly(2025, 11, 6), new TimeOnly(9, 45)), 
+                new DateTime(new DateOnly(2025, 11, 6), new TimeOnly(9, 45)), 
+                new DateTime(new DateOnly(2025, 11, 6), new TimeOnly(9, 45)), 
+                new DateTime(new DateOnly(2025, 11, 6), new TimeOnly(9, 45)), 
+                Colors.Green, 
+                Colors.Blue);
+
+            TaskItem indkoeb = new TaskItem(
+                "Indkøb",
+                "Ja",
+                "Dinasaur",
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                Colors.DarkMagenta,
+                Colors.Black);
+
+
+            TaskItem indkoeb2 = new TaskItem(
+                "Indkøb",
+                "Ja",
+                "Dinasaur",
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                Colors.DarkMagenta,
+                Colors.Black);
+
+            TaskItem indkoeb3 = new TaskItem(
+                "wfafafwfafwffaff",
+                "Ja",
+                "Dinasaur",
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                Colors.DarkMagenta,
+                Colors.Black);
+
+
+            TaskItem indkoeb4 = new TaskItem(
+                "fwffwwfafffw",
+                "Ja",
+                "Dinasaur",
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                Colors.DarkMagenta,
+                Colors.Black);
+
+
+            TaskItem indkoeb5 = new TaskItem(
+                "dwddaddwd",
+                "Ja",
+                "Dinasaur",
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                Colors.DarkMagenta,
+                Colors.Black);
+
+
+
+
+
+            notdoing.tasks.Add(test);
+            notdoing.tasks.Add(indkoeb);
+            notdoing.tasks.Add(indkoeb2);
+            notdoing.tasks.Add(indkoeb3);
+            notdoing.tasks.Add(indkoeb4);
+
+
+
+
+            dinaiseret.tasks.Add(indkoeb);
+
+
+
+            for(int i = 0; i < notdoing.tasks.Count; i++)
+            {
+                NotDoingList.Items.Add(notdoing.tasks[i].title);
+            }
+
         }
 
 
-        // Efter lidt research, så skal vi bruge Color fra System.Windows.Media, da det er til WPF.
-        // Har lavet eksempler på de 3 stages, som alle tager imod colors på forskellige måder.
-        // Vi kan gennemgå det sammen, hvis der er spørgsmål til color codes.
 
-        // RGBA Color
-        Stage notdoing = new Stage("Not Doing", Color.FromArgb(100, 100, 100, 100));
-        
-        // HEX Color
-        Stage doing = new Stage("Doing", (Color)ColorConverter.ConvertFromString("#FFB0B0B0"));
-
-        // Pre-defineret colors i .NET WPF
-        Stage done = new Stage("Done", Colors.Green);
-
-
-
-        // Jeg har ændet Class navn fra Task til TaskItem, da Task er type til async operationer, som vi ikke har været igennem.
-        // TODO: Vi mangler at lave constructor, så hver task bliver oprettet korrekt og derefter kan tilføjes til Stage liste.
-        
-        TaskItem test = new TaskItem("Feje gulv", 
-                                        "Gulvet skal fejes grundigt", 
-                                        "Konrad", 
-                                        new DateTime(new DateOnly(2025, 11, 6), new TimeOnly(9, 45)), 
-                                        new DateTime(new DateOnly(2025, 11, 6), new TimeOnly(9, 45)), 
-                                        new DateTime(new DateOnly(2025, 11, 6), new TimeOnly(9, 45)),
-                                        new DateTime(new DateOnly(2025, 11, 6), new TimeOnly(9, 45)),
-                                        Colors.Green, 
-                                        Colors.Blue);
     }
 
 }
