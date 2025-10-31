@@ -40,7 +40,16 @@ namespace Projektstyring
 
         // Jeg har ændet Class navn fra Task til TaskItem, da Task er type til async operationer, som vi ikke har været igennem.
         // TODO: Vi mangler at lave constructor, så hver task bliver oprettet korrekt og derefter kan tilføjes til Stage liste.
-        TaskItem test = new TaskItem();
+        
+        TaskItem test = new TaskItem("Feje gulv", 
+                                        "Gulvet skal fejes grundigt", 
+                                        "Konrad", 
+                                        new DateTime(new DateOnly(2025, 11, 6), new TimeOnly(9, 45)), 
+                                        new DateTime(new DateOnly(2025, 11, 6), new TimeOnly(9, 45)), 
+                                        new DateTime(new DateOnly(2025, 11, 6), new TimeOnly(9, 45)),
+                                        new DateTime(new DateOnly(2025, 11, 6), new TimeOnly(9, 45)),
+                                        Colors.Green, 
+                                        Colors.Blue);
     }
 
 }
