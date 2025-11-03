@@ -7,6 +7,30 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+<<<<<<< Updated upstream
+=======
+        <TabControl>
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5">
+                    <Border BorderBrush="Black" BorderThickness="1" Height="386" VerticalAlignment="Center" Width="auto" HorizontalAlignment="Center">
+                        <StackPanel x:Name="StackOfLists" Orientation="Horizontal">
+                            <!--<ListBox x:Name="NotDoingList" Width="200" Margin="10,10,0,10"/>
+                            <ListBox x:Name="DoingList" Width="200" Margin="10,10,0,10"/>
+                            <ListBox x:Name="DoneList" Width="200" Margin="10,10,10,10"/>-->
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </TabItem>
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="31*"/>
+                        <ColumnDefinition Width="763*"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </TabItem>
+        </TabControl>
+>>>>>>> Stashed changes
 
     </Grid>
 </Window>
