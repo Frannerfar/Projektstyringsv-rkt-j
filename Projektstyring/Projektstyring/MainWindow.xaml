@@ -5,26 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projektstyring"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Projektstyring - Gruppe 6" Height="800" Width="1200">
     <Grid>
         <TabControl>
-            <TabItem Header="TabItem">
+            <TabItem Header="Kanban">
                 <Grid Background="#FFE5E5E5" Height="auto" Width="auto">
-                    <StackPanel Orientation="Vertical">
-                        <Button x:Name="AddTaskButton" Click="AddTaskButton_Click" >add task</Button>
-                        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" Width="auto">
-                            <StackPanel x:Name="KanbanBoard" Height="auto" Width="auto" HorizontalAlignment="Stretch" Orientation="Horizontal">
-                                <!--<ListBox x:Name="NotDoingList">
-                                </ListBox>
-                                <ListBox x:Name="DinaiseretList">
-                                </ListBox>
-                                <ListBox x:Name="JulehyggeList">
-                                </ListBox>-->
-
-                            </StackPanel>
-                        </Border>
-                        
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <Button x:Name="AddTaskButton" Margin="10, 0, 0, 0" Height="30" MinWidth="100" Click="AddTaskButton_Click" >Add Task</Button>
+                        <Button x:Name="AddStageButton" Margin="10, 0, 0, 0" Height="30" MinWidth="100" >Add Stage</Button>
                     </StackPanel>
+                    <!--<Border BorderBrush="Black" Grid.Row="1" BorderThickness="1" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" Width="auto">-->
+                        <Grid x:Name="ViewGrid" Height="auto" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1">
+
+                        </Grid>
+                    <!--</Border>-->
+                        
                 </Grid>
             </TabItem>
             <TabItem Header="TabItem">

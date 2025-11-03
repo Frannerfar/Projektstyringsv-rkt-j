@@ -273,12 +273,39 @@ namespace Projektstyring
         } 
         private void DrawKanban()
         {
-            KanbanBoard.Children.Clear();
+            ViewGrid.Children.Clear();
+
+            Grid KanbanBoard = new Grid
+            {
+                VerticalAlignment = VerticalAlignment.Stretch,
+                HorizontalAlignment = HorizontalAlignment.Stretch
+            };
+            ViewGrid.Children.Add(KanbanBoard);
+
+            KanbanBoard.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+            KanbanBoard.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+
             for (int i = 0; i < stages.Count; i++)
             {
+                KanbanBoard.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star), MinWidth = 200 });
+                
+                TextBlock stageLabel = new TextBlock();
+                stageLabel.Text = stages[i].title;
+                stageLabel.FontSize = 20;
+                stageLabel.TextAlignment = TextAlignment.Center;
+                stageLabel.Margin = new Thickness(0, 20, 0, 20);
+                stageLabel.FontWeight = FontWeights.Bold;
+                Grid.SetRow(stageLabel, 0);
+                Grid.SetColumn(stageLabel, i);
+                
+                
                 ListBox listbox = new ListBox();
-                listbox.Width = 200;
+                //listbox.Width = 200;
+                
+                Grid.SetColumn(listbox, i);
+                Grid.SetRow(listbox, 1);
 
+                KanbanBoard.Children.Add(stageLabel);
                 KanbanBoard.Children.Add(listbox);
 
                 for (int j = 0; j < stages[i].tasks.Count; j++)
