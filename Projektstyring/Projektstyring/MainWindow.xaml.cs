@@ -117,7 +117,7 @@ namespace Projektstyring
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                Colors.WhiteSmoke,
+                Colors.Red,
                 Colors.Black);
 
 
@@ -129,9 +129,52 @@ namespace Projektstyring
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                Colors.BlueViolet,
+                Colors.Red,
                 Colors.Black);
 
+            TaskItem igang = new TaskItem(
+                "Igang",
+                "Ja",
+                "Dinasaur",
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                Colors.Yellow,
+                Colors.Black);
+
+            TaskItem igang2 = new TaskItem(
+                "Underway",
+                "Ja",
+                "Dinasaur",
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                Colors.Yellow,
+                Colors.Black);
+
+            TaskItem klaret = new TaskItem(
+                "Færdig",
+                "Ja",
+                "Dinasaur",
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                Colors.Green,
+                Colors.Black);
+
+            TaskItem klaret2 = new TaskItem(
+                "Klaret",
+                "Ja",
+                "Dinasaur",
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+                Colors.Green,
+                Colors.Black);
 
             TaskItem juleshoppetur = new TaskItem(
                 "hohoho",
@@ -144,10 +187,10 @@ namespace Projektstyring
                 Colors.Magenta,
                 Colors.White);
 
-            TaskItem juleshoppetur2 = new TaskItem(
                 "ho hoho",
-                "Hvad du ønsker skal du få",
+            TaskItem juleshoppetur2 = new TaskItem(
                 "Dinasaur",
+                "Hvad du ønsker skal du få",
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
@@ -196,6 +239,7 @@ namespace Projektstyring
             notdoing.tasks.Add(indkoeb2);
             notdoing.tasks.Add(indkoeb3);
             notdoing.tasks.Add(indkoeb4);
+            notdoing.tasks.Add(indkoeb5);
 
 
             dinaiseret.tasks.Add(indkoeb);
