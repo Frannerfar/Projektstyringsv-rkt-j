@@ -187,8 +187,8 @@ namespace Projektstyring
                 Colors.Magenta,
                 Colors.White);
 
-                "ho hoho",
             TaskItem juleshoppetur2 = new TaskItem(
+                "ho hoho",
                 "Dinasaur",
                 "Hvad du ønsker skal du få",
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
