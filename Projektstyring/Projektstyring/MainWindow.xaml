@@ -9,10 +9,22 @@
     <Grid>
         <TabControl>
             <TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5">
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Height="386" VerticalAlignment="Center" Width="774">
-                        <ListBox x:Name="NotDoingList" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-                    </Border>
+                <Grid Background="#FFE5E5E5" Height="auto" Width="auto">
+                    <StackPanel Orientation="Vertical">
+                        <Button x:Name="AddTaskButton" Click="AddTaskButton_Click" >add task</Button>
+                        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" Width="auto">
+                            <StackPanel x:Name="KanbanBoard" Height="auto" Width="auto" HorizontalAlignment="Stretch" Orientation="Horizontal">
+                                <!--<ListBox x:Name="NotDoingList">
+                                </ListBox>
+                                <ListBox x:Name="DinaiseretList">
+                                </ListBox>
+                                <ListBox x:Name="JulehyggeList">
+                                </ListBox>-->
+
+                            </StackPanel>
+                        </Border>
+                        
+                    </StackPanel>
                 </Grid>
             </TabItem>
             <TabItem Header="TabItem">
