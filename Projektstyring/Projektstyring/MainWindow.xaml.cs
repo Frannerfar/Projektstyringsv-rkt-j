@@ -49,6 +49,7 @@ namespace Projektstyring
             // TODO: Vi mangler at lave constructor, så hver task bliver oprettet korrekt og derefter kan tilføjes til Stage liste.
 
             TaskItem test = new TaskItem(
+<<<<<<< Updated upstream
                 "Feje gulv", 
                 "Gulvet skal fejes grundigt", 
                 "Konrad", 
@@ -58,6 +59,18 @@ namespace Projektstyring
                 new DateTime(new DateOnly(2025, 11, 6), new TimeOnly(9, 45)), 
                 Colors.Red, 
                 Colors.Blue);
+=======
+                "Feje gulv",
+                "Gulvet skal fejes grundigt",
+                "Konrad",
+                new DateTime(new DateOnly(2025, 11, 6), new TimeOnly(9, 45)),
+                new DateTime(new DateOnly(2025, 11, 6), new TimeOnly(9, 45)),
+                new DateTime(new DateOnly(2025, 11, 6), new TimeOnly(9, 45)),
+                new DateTime(new DateOnly(2025, 11, 6), new TimeOnly(9, 45)),
+                Colors.Green,
+                Colors.Blue, 
+                notdoing);
+>>>>>>> Stashed changes
 
             TaskItem indkoeb = new TaskItem(
                 "Indkøb",
@@ -67,9 +80,27 @@ namespace Projektstyring
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+<<<<<<< Updated upstream
                 Colors.Red,
                 Colors.Black);
 
+=======
+                Colors.DarkMagenta,
+                Colors.Black, 
+                dinaiseret);
+
+            TaskItem indkoeb1 = new TaskItem(
+               "Indkøb",
+               "Ja",
+               "Dinasaur",
+               new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+               new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+               new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+               new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+               Colors.Yellow,
+               Colors.Black, 
+               dinaiseret);
+>>>>>>> Stashed changes
 
             TaskItem indkoeb2 = new TaskItem(
                 "Indkøb",
@@ -79,8 +110,14 @@ namespace Projektstyring
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
+<<<<<<< Updated upstream
                 Colors.Red,
                 Colors.Black);
+=======
+                Colors.Blue,
+                Colors.Black, 
+                dinaiseret);
+>>>>>>> Stashed changes
 
             TaskItem indkoeb3 = new TaskItem(
                 "wfafafwfafwffaff",
@@ -91,7 +128,8 @@ namespace Projektstyring
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 Colors.Red,
-                Colors.Black);
+                Colors.Black, 
+                dinaiseret);
 
 
             TaskItem indkoeb4 = new TaskItem(
@@ -103,7 +141,8 @@ namespace Projektstyring
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 Colors.Red,
-                Colors.Black);
+                Colors.Black, 
+                dinaiseret);
 
 
             TaskItem indkoeb5 = new TaskItem(
@@ -115,7 +154,8 @@ namespace Projektstyring
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 Colors.Red,
-                Colors.Black);
+                Colors.Black, 
+                dinaiseret);
 
             TaskItem igang = new TaskItem(
                 "Igang",
@@ -126,7 +166,8 @@ namespace Projektstyring
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 Colors.Yellow,
-                Colors.Black);
+                Colors.Black, 
+                doing);
 
             TaskItem igang2 = new TaskItem(
                 "Underway",
@@ -137,7 +178,8 @@ namespace Projektstyring
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 Colors.Yellow,
-                Colors.Black);
+                Colors.Black, 
+                doing);
 
             TaskItem klaret = new TaskItem(
                 "Færdig",
@@ -148,7 +190,8 @@ namespace Projektstyring
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 Colors.Green,
-                Colors.Black);
+                Colors.Black, 
+                done);
 
             TaskItem klaret2 = new TaskItem(
                 "Klaret",
@@ -159,19 +202,121 @@ namespace Projektstyring
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 Colors.Green,
-                Colors.Black);
+                Colors.Black, 
+                done);
 
+<<<<<<< Updated upstream
+=======
+            TaskItem juleshoppetur = new TaskItem(
+                "hohoho",
+                "Nu er det snart jul igen",
+                "Dinasaur",
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
+                Colors.Magenta,
+                Colors.White, 
+                julehygge);
+
+            TaskItem juleshoppetur2 = new TaskItem(
+                "ho hoho",
+                "Dinasaur",
+                "Hvad du ønsker skal du få",
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
+                Colors.Magenta,
+                Colors.White, 
+                julehygge);
+
+            TaskItem juleshoppetur3 = new TaskItem(
+                "ho ho ho",
+                "Julegaveindkøb: Kul",
+                "Dinasaur",
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
+                Colors.Magenta,
+                Colors.White, 
+                julehygge);
+
+            TaskItem juleshoppetur4 = new TaskItem(
+                "ho  ho  ho",
+                "Indkøbsliste: Glögg, mandler, æbleskiver, grødris",
+                "Dinasaur",
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
+                Colors.Magenta,
+                Colors.White,
+                julehygge);
+
+            TaskItem juleshoppetur5 = new TaskItem(
+                "ho   ho   ho",
+                "Huhuuuu.. Nu er det snart jul",
+                "Dinasaur",
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
+                Colors.Magenta,
+                Colors.White,
+                julehygge);
+
+>>>>>>> Stashed changes
 
 
 
             notdoing.tasks.Add(test);
-            notdoing.tasks.Add(indkoeb);
-            notdoing.tasks.Add(indkoeb2);
-            notdoing.tasks.Add(indkoeb3);
-            notdoing.tasks.Add(indkoeb4);
-            notdoing.tasks.Add(indkoeb5);
 
+<<<<<<< Updated upstream
             for(int i = 0; i < stages.Count; i++)
+=======
+            doing.tasks.Add(igang);
+            doing.tasks.Add(igang2);
+
+            done.tasks.Add(klaret);
+            done.tasks.Add(klaret);
+
+            dinaiseret.tasks.Add(indkoeb);
+            dinaiseret.tasks.Add(indkoeb1);
+            dinaiseret.tasks.Add(indkoeb2);
+            dinaiseret.tasks.Add(indkoeb3);
+            dinaiseret.tasks.Add(indkoeb4);
+
+            julehygge.tasks.Add(juleshoppetur);
+            julehygge.tasks.Add(juleshoppetur2);
+            julehygge.tasks.Add(juleshoppetur3);
+            julehygge.tasks.Add(juleshoppetur4);
+            julehygge.tasks.Add(juleshoppetur5);
+
+            DrawKanban();
+            
+
+
+            //for (int i = 0; i < notdoing.tasks.Count; i++)
+            //{
+            //    NotDoingList.Items.Add(notdoing.tasks[i].title);
+            //}
+
+            //for (int i = 0; i < julehygge.tasks.Count; i++)
+            //{
+            //    JulehyggeList.Items.Add(julehygge.tasks[i].title);
+            //}
+
+
+
+        } 
+        private void DrawKanban()
+        {
+            ViewGrid.Children.Clear();
+
+            Grid KanbanBoard = new Grid
+>>>>>>> Stashed changes
             {
                 ListBox listbox = new ListBox();
                 listbox.Width = 200;
@@ -208,9 +353,28 @@ namespace Projektstyring
 
                     item.Background = new SolidColorBrush(stages[i].tasks[j].backgroundColor);
                     listbox.Items.Add(item);
+<<<<<<< Updated upstream
                 }
             }
 
+=======
+
+                }
+            }
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            Debug.WriteLine("Vi deleter en ting eller et eller andet");
+
+            Button button = (Button)sender;
+            TaskItem task = (TaskItem)button.Tag;
+            
+            task.stage.tasks.Remove(task);
+            task.stage = null;
+            DrawKanban();
+        }
+>>>>>>> Stashed changes
 
             doing.tasks.Add(igang);
             doing.tasks.Add(igang2);
