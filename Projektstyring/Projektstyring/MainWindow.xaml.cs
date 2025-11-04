@@ -381,8 +381,13 @@ namespace Projektstyring
 
         private void AddTaskButton_Click(object sender, RoutedEventArgs e)
         {
-            Modal window = new Modal();
-            window.ShowDialog();
+            Modal window = new Modal(stages);
+            bool? success = window.ShowDialog();
+
+            if(success != null && success == true)
+            {
+                DrawKanban();
+            }
         }
     }
 }

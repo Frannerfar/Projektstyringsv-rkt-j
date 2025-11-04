@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Projektstyring.Models
 {
-    internal class TaskItem : CardUI //Vi vil gerne nedarve fra : CardUI. Har samtidig slettet bordercolor og backgroundcolor i attributes og constructoren, da vi ikke har brug for dem der. 
+    public class TaskItem : CardUI //Vi vil gerne nedarve fra : CardUI. Har samtidig slettet bordercolor og backgroundcolor i attributes og constructoren, da vi ikke har brug for dem der. 
     {
         public string title;
         public string text;

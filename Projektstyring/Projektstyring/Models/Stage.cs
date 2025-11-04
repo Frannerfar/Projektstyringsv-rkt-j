@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Projektstyring.Models
 {
-    class Stage
+    public class Stage
     {
         public string title;
         public List<TaskItem> tasks = new List<TaskItem>();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projektstyring.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,10 +19,49 @@ namespace Projektstyring
     /// Interaction logic for Modal.xaml
     /// </summary>
     public partial class Modal : Window
+       
     {
-        public Modal()
+
+        List<Stage> stages;
+        public Modal(List<Stage> stages)
         {
             InitializeComponent();
+
+            this.stages = stages;
+
+            for (int i = 0; i < stages.Count; i++)
+            {
+                Dropdown.Items.Add(stages[i].title);
+                Dropdown.SelectedIndex = 0;
+            }
+
+                
+
+        }
+
+        private void ModalAddTask(object sender, RoutedEventArgs e)
+        {
+            string titleInput = Title.Text;
+            string textInput = Text.Text;
+            string responsible = Responsible.Text;
+            Stage selectedStage = stages[Dropdown.SelectedIndex];
+
+            TaskItem task = new TaskItem(
+                titleInput,
+                textInput,
+                responsible,
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
+                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
+                Colors.Magenta,
+                Colors.White,
+                selectedStage);
+
+            selectedStage.tasks.Add(task);
+            this.DialogResult = true;
+            this.Close();
+
         }
     }
 }
