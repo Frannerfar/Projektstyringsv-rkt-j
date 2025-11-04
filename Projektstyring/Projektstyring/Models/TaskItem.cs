@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Projektstyring.Models
 {
-    internal class TaskItem
+    internal class TaskItem : CardUI //Vi vil gerne nedarve fra : CardUI. Har samtidig slettet bordercolor og backgroundcolor i attributes og constructoren, da vi ikke har brug for dem der. 
     {
         public string title;
         public string text;
@@ -16,10 +16,21 @@ namespace Projektstyring.Models
         public DateTime endDateTime;
         public DateTime modifiedDateTime;
         public DateTime deadlineDateTime;
-        public Color backgroundColor;
-        public Color borderColor;
+        public Stage stage;
+   
 
-        public TaskItem(string titleInput, string textInput, string responsibleNameInput, DateTime startDateTimeInput, DateTime endDateTimeInput, DateTime modifiedDateTimeInput, DateTime deadlineDateTimeInput, Color backgroundColerInput, Color borderColorInput)
+        public TaskItem(
+            string titleInput, 
+            string textInput, 
+            string responsibleNameInput, 
+            DateTime startDateTimeInput, 
+            DateTime endDateTimeInput, 
+            DateTime modifiedDateTimeInput, 
+            DateTime deadlineDateTimeInput, 
+            Color backgroundColerInput, 
+            Color borderColorInput,
+            Stage stageInput) 
+            : base(backgroundColerInput, borderColorInput) //: base referer til parenten CardUI
         {
             title = titleInput;
             text = textInput;
@@ -28,8 +39,8 @@ namespace Projektstyring.Models
             endDateTime = endDateTimeInput;
             modifiedDateTime = modifiedDateTimeInput;
             deadlineDateTime = deadlineDateTimeInput;
-            backgroundColor = backgroundColerInput;
-            borderColor = borderColorInput;
+            stage = stageInput;
+          
         }
 
         public void AddText()

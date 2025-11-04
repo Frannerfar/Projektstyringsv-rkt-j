@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="Modal" Height="450" Width="800">
     <Grid>
+<<<<<<< Updated upstream
         <Grid Margin="25">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
@@ -22,6 +23,32 @@
                 Grid.Row="5"
                 FontSize="14"
                 Text=" tom" />
+=======
+
+
+
+        <TextBlock
+    
+                Grid.Row="0"
+            FontSize="28"
+            Text="Opret Task" Margin="25,20,0,369" />
+
+        <TextBlock
+                FontSize="8"
+                Text=" Navn på Task" Height="20" VerticalAlignment="Top" Margin="25,72,0,0" />
+        <Label Content="Indtast navn" HorizontalAlignment="Center" Margin="0,90,0,0" VerticalAlignment="Top" Width="750" Height="29"/>
+        <Rectangle HorizontalAlignment="Center" Margin="0,88,0,315" Stroke="Black" Width="750"/>
+
+        <TextBlock
+     FontSize="8"
+     Height="15" VerticalAlignment="Top" Margin="29,142,-5,0" ><Run Language="da-dk" Text="Beskrivelse"/></TextBlock>
+        <Label Content="Skriv beskrivelse" HorizontalAlignment="Center" VerticalAlignment="Top" Width="750" Height="120" RenderTransformOrigin="0.497,5.477" Margin="0,162,0,0"/>
+        <Rectangle HorizontalAlignment="Center" Margin="0,159,0,187" Stroke="Black" Width="750"/>
+
+
+
+
+>>>>>>> Stashed changes
 
         <!--</Grid>
             <TextBox 
