@@ -188,8 +188,6 @@ namespace Projektstyring
                 Colors.Black, 
                 done);
 
-<<<<<<< Updated upstream
-=======
             TaskItem juleshoppetur = new TaskItem(
                 "hohoho",
                 "Nu er det snart jul igen",
@@ -250,12 +248,10 @@ namespace Projektstyring
                 Colors.White,
                 julehygge);
 
->>>>>>> Stashed changes
 
 
 
             notdoing.tasks.Add(test);
-<<<<<<< Updated upstream
             notdoing.tasks.Add(indkoeb);
             notdoing.tasks.Add(indkoeb2);
             notdoing.tasks.Add(indkoeb3);
