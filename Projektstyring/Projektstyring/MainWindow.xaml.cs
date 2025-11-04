@@ -336,6 +336,9 @@ namespace Projektstyring
                     TextBlock datetime = new TextBlock();
                     datetime.Text = $"startdato {stages[i].tasks[j].startDateTime}";
 
+                    CardUI Card = new CardUI(Colors.Blue, Colors.Black); //Vi laver en ny type CardUI der kaldes Card, den skabes først når vi siger = new cardUI(hvilke colors vi vil have vælges her, efter de krav contructoren beder om)
+                   
+
                     stackPanel.Children.Add(deleteButton);
                     stackPanel.Children.Add(title);
                     stackPanel.Children.Add(responsible);

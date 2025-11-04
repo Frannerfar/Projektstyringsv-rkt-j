@@ -7,6 +7,30 @@
         mc:Ignorable="d"
         Title="Modal" Height="450" Width="800">
     <Grid>
-        
+
+    
+
+            <TextBlock
+    
+                Grid.Row="0"
+            FontSize="28"
+            Text="Opret Task" Margin="0,0,0,161" />
+
+            <TextBlock
+                FontSize="8"
+                Text=" Navn på Task" Height="20" VerticalAlignment="Top" Margin="25,72,0,0" />
+            <Label Content="Indtast navn" HorizontalAlignment="Center" Margin="0,90,0,0" VerticalAlignment="Top" Width="750" Height="29"/>
+            <Rectangle HorizontalAlignment="Center" Margin="0,88,0,303" Stroke="Black" Width="750"/>
+
+            <TextBlock
+     FontSize="8"
+     Height="15" VerticalAlignment="Top" Margin="25,164,-5,0" ><Run Language="da-dk" Text="Beskrivelse"/></TextBlock>
+            <Label Content="Skriv beskrivelse" HorizontalAlignment="Center" VerticalAlignment="Top" Width="750" Height="29" RenderTransformOrigin="0.497,5.477" Margin="0,207,0,0"/>
+            <Rectangle HorizontalAlignment="Center" Margin="0,185,0,23" Stroke="Black" Width="750"/>
+
+
+
+       
+
     </Grid>
 </Window>

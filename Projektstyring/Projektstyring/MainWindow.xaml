@@ -9,7 +9,7 @@
     <Grid>
         <TabControl>
             <TabItem Header="Kanban">
-                <Grid Background="#FFE5E5E5" Height="auto" Width="auto">
+                <Grid x:Name="KanbanBoard" Background="#FFE5E5E5" Height="auto" Width="auto">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50" />
                         <RowDefinition Height="*" />
