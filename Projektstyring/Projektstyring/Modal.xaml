@@ -7,6 +7,27 @@
         mc:Ignorable="d"
         Title="Modal" Height="450" Width="800">
     <Grid>
-        
+        <Grid Margin="25">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                
+            </Grid.RowDefinitions>
+            
+            <TextBlock
+            Grid.Row="0"
+            FontSize="28"
+            Text="Opret Task" />
+            
+            <TextBlock
+                Grid.Row="5"
+                FontSize="14"
+                Text=" tom" />
+
+        <!--</Grid>
+            <TextBox 
+                Grid.Row="2"
+                FontSize="12"
+                Text="Hey" />-->
     </Grid>
+  </Grid>
 </Window>
