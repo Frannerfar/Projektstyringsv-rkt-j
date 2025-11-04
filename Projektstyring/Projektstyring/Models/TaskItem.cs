@@ -16,20 +16,18 @@ namespace Projektstyring.Models
         public DateTime endDateTime;
         public DateTime modifiedDateTime;
         public DateTime deadlineDateTime;
-        public Stage stage;
-   
+        public Stage? stage;
 
-        public TaskItem(
-            string titleInput, 
-            string textInput, 
-            string responsibleNameInput, 
-            DateTime startDateTimeInput, 
-            DateTime endDateTimeInput, 
-            DateTime modifiedDateTimeInput, 
-            DateTime deadlineDateTimeInput, 
-            Color backgroundColerInput, 
-            Color borderColorInput,
-            Stage stageInput) 
+        public TaskItem(string titleInput, 
+                        string textInput, 
+                        string responsibleNameInput, 
+                        DateTime startDateTimeInput, 
+                        DateTime endDateTimeInput, 
+                        DateTime modifiedDateTimeInput, 
+                        DateTime deadlineDateTimeInput, 
+                        Color backgroundColerInput, 
+                        Color borderColorInput, 
+                        Stage stageInput) 
             : base(backgroundColerInput, borderColorInput) //: base referer til parenten CardUI
         {
             title = titleInput;

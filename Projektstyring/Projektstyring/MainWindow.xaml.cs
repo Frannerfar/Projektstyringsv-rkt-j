@@ -124,12 +124,8 @@ namespace Projektstyring
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 Colors.Red,
-                Colors.Black);
-=======
-                Colors.Red,
-                Colors.Black,
+                Colors.Black, 
                 dinaiseret);
->>>>>>> Stashed changes
 
 
             TaskItem indkoeb5 = new TaskItem(
@@ -141,8 +137,9 @@ namespace Projektstyring
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 Colors.Red,
-                Colors.Black,
+                Colors.Black, 
                 dinaiseret);
+
             TaskItem igang = new TaskItem(
                 "Igang",
                 "Ja",
@@ -152,7 +149,7 @@ namespace Projektstyring
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 Colors.Yellow,
-                Colors.Black,
+                Colors.Black, 
                 doing);
 
             TaskItem igang2 = new TaskItem(
@@ -164,7 +161,7 @@ namespace Projektstyring
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 Colors.Yellow,
-                Colors.Black,
+                Colors.Black, 
                 doing);
 
             TaskItem klaret = new TaskItem(
@@ -176,7 +173,7 @@ namespace Projektstyring
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 Colors.Green,
-                Colors.Black,
+                Colors.Black, 
                 done);
 
             TaskItem klaret2 = new TaskItem(
@@ -188,9 +185,11 @@ namespace Projektstyring
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 Colors.Green,
-                Colors.Black,
+                Colors.Black, 
                 done);
 
+<<<<<<< Updated upstream
+=======
             TaskItem juleshoppetur = new TaskItem(
                 "hohoho",
                 "Nu er det snart jul igen",
@@ -200,7 +199,7 @@ namespace Projektstyring
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
                 Colors.Magenta,
-                Colors.White,
+                Colors.White, 
                 julehygge);
 
             TaskItem juleshoppetur2 = new TaskItem(
@@ -212,7 +211,7 @@ namespace Projektstyring
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
                 Colors.Magenta,
-                Colors.White,
+                Colors.White, 
                 julehygge);
 
             TaskItem juleshoppetur3 = new TaskItem(
@@ -224,7 +223,7 @@ namespace Projektstyring
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
                 Colors.Magenta,
-                Colors.White,
+                Colors.White, 
                 julehygge);
 
             TaskItem juleshoppetur4 = new TaskItem(
@@ -251,6 +250,7 @@ namespace Projektstyring
                 Colors.White,
                 julehygge);
 
+>>>>>>> Stashed changes
 
 
 
