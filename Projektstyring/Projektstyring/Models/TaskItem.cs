@@ -7,7 +7,11 @@ using System.Threading.Tasks;
 
 namespace Projektstyring.Models
 {
+<<<<<<< Updated upstream
     internal class TaskItem : CardUI
+=======
+    public class TaskItem : CardUI //Vi vil gerne nedarve fra : CardUI. Har samtidig slettet bordercolor og backgroundcolor i attributes og constructoren, da vi ikke har brug for dem der. 
+>>>>>>> Stashed changes
     {
         public string title;
         public string text;

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Projektstyring.Models
 {
-    internal class CardUI
+    public class CardUI
     {
         public Color backgroundColor;
         public Color borderColor;

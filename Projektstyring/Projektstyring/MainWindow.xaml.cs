@@ -36,6 +36,7 @@ namespace Projektstyring
             // Pre-defineret colors i .NET WPF
             Stage done = new Stage("Done", Colors.Green);
 
+<<<<<<< Updated upstream
             // Dinas tilføjelse af en ny stage, i HEX Color
             Stage dinaiseret = new Stage("Dinaiset", (Color)ColorConverter.ConvertFromString("#FFFF00FF"));
 
@@ -44,6 +45,11 @@ namespace Projektstyring
             stages.Add(done);
             stages.Add(dinaiseret);
 
+=======
+            stages.Add(notdoing);
+            stages.Add(doing);
+            stages.Add(done);
+>>>>>>> Stashed changes
 
             // Jeg har ændet Class navn fra Task til TaskItem, da Task er type til async operationer, som vi ikke har været igennem.
             // TODO: Vi mangler at lave constructor, så hver task bliver oprettet korrekt og derefter kan tilføjes til Stage liste.
@@ -70,6 +76,7 @@ namespace Projektstyring
                 Colors.Green,
                 Colors.Blue, 
                 notdoing);
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 
             TaskItem indkoeb = new TaskItem(
@@ -156,21 +163,11 @@ namespace Projektstyring
                 Colors.Red,
                 Colors.Black, 
                 dinaiseret);
+=======
+>>>>>>> Stashed changes
 
             TaskItem igang = new TaskItem(
                 "Igang",
-                "Ja",
-                "Dinasaur",
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                Colors.Yellow,
-                Colors.Black, 
-                doing);
-
-            TaskItem igang2 = new TaskItem(
-                "Underway",
                 "Ja",
                 "Dinasaur",
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
@@ -193,6 +190,7 @@ namespace Projektstyring
                 Colors.Black, 
                 done);
 
+<<<<<<< Updated upstream
             TaskItem klaret2 = new TaskItem(
                 "Klaret",
                 "Ja",
@@ -293,6 +291,14 @@ namespace Projektstyring
             julehygge.tasks.Add(juleshoppetur3);
             julehygge.tasks.Add(juleshoppetur4);
             julehygge.tasks.Add(juleshoppetur5);
+=======
+
+            notdoing.tasks.Add(test);
+            
+            doing.tasks.Add(igang);
+
+            done.tasks.Add(klaret);
+>>>>>>> Stashed changes
 
             DrawKanban();
             
@@ -319,7 +325,20 @@ namespace Projektstyring
 >>>>>>> Stashed changes
             {
                 ListBox listbox = new ListBox();
+<<<<<<< Updated upstream
                 listbox.Width = 200;
+=======
+                listbox.Drop += ListBox_Drop;
+                listbox.Tag = stages[i];
+                listbox.AllowDrop = true;
+                listbox.SelectionMode = SelectionMode.Single;
+                listbox.DragEnter += ListBox_DragEnter;
+                listbox.DragLeave += ListBox_DragLeave;
+                //listbox.Width = 200;
+                
+                Grid.SetColumn(listbox, i);
+                Grid.SetRow(listbox, 1);
+>>>>>>> Stashed changes
 
                 StackOfLists.Children.Add(listbox);
 
@@ -327,6 +346,12 @@ namespace Projektstyring
                 {
                     StackPanel stackPanel = new StackPanel();
                     stackPanel.Margin = new Thickness(10);
+
+                    Button editButton = new Button();
+
+                    editButton.Content = "Rediger";
+                    editButton.Click += EditButton_Click;
+                    editButton.Tag = stages[i].tasks[j];
 
                     TextBlock title = new TextBlock();
                     TextBlock text = new TextBlock();
@@ -340,6 +365,17 @@ namespace Projektstyring
                     startDate.Text = $"{stages[i].tasks[j].startDateTime}";
                     endDate.Text = $"{stages[i].tasks[j].endDateTime}";
 
+<<<<<<< Updated upstream
+=======
+                    TextBlock datetime = new TextBlock();
+                    datetime.Text = $"startdato {stages[i].tasks[j].startDateTime}";
+
+                    CardUI Card = new CardUI(Colors.Blue, Colors.Black); //Vi laver en ny type CardUI der kaldes Card, den skabes først når vi siger = new cardUI(hvilke colors vi vil have vælges her, efter de krav contructoren beder om)
+                   
+
+                    stackPanel.Children.Add(deleteButton);
+                    stackPanel.Children.Add(editButton);
+>>>>>>> Stashed changes
                     stackPanel.Children.Add(title);
                     stackPanel.Children.Add(text);
                     stackPanel.Children.Add(responsible);
@@ -350,6 +386,9 @@ namespace Projektstyring
                     item.Content = stackPanel;
                     item.BorderBrush = new SolidColorBrush(stages[i].tasks[j].borderColor);
                     item.BorderThickness = new Thickness(2);
+                    item.PreviewMouseMove += ListBoxItem_PreviewMouseMove;
+                    item.Tag = stages[i].tasks[j];
+                    item.IsHitTestVisible = true;
 
                     item.Background = new SolidColorBrush(stages[i].tasks[j].backgroundColor);
                     listbox.Items.Add(item);
@@ -361,6 +400,14 @@ namespace Projektstyring
 
                 }
             }
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            TaskItem task = (TaskItem)button.Tag;
+            ModalEditTask window = new ModalEditTask(task);
+            window.ShowDialog();
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
@@ -376,6 +423,7 @@ namespace Projektstyring
         }
 >>>>>>> Stashed changes
 
+<<<<<<< Updated upstream
             doing.tasks.Add(igang);
             doing.tasks.Add(igang2);
 
@@ -442,6 +490,82 @@ namespace Projektstyring
             //    item.Background = new SolidColorBrush(done.backgroundColor);
             //}
 >>>>>>> Stashed changes
+=======
+        private void AddTaskButton_Click(object sender, RoutedEventArgs e)
+        {
+            Modal window = new Modal(stages);
+            bool? succes = window.ShowDialog();
+
+            if(succes != null && succes == true)
+            {
+                DrawKanban();
+            }
+>>>>>>> Stashed changes
         }
+
+        private void AddStageButton_Click(object sender, RoutedEventArgs e)
+        {
+            Modal2 window = new Modal2(stages);
+            bool? succes = window.ShowDialog();
+
+            if(succes != null && succes == true)
+            {
+                DrawKanban();
+            }
+        }
+
+        private void ListBoxItem_PreviewMouseMove(object sender, MouseEventArgs e)
+        {
+            if(e.OriginalSource is Button)
+            {
+                return;
+            }
+
+            if(e.LeftButton == MouseButtonState.Pressed)
+            {
+                ListBoxItem draggedItem = (ListBoxItem)sender;
+                TaskItem task = (TaskItem)draggedItem.Tag;
+                DragDrop.DoDragDrop(draggedItem, task, DragDropEffects.Move);
+            }
+        }
+
+        private void ListBox_DragEnter(object sender, DragEventArgs e)
+        {
+            if(e.Data.GetDataPresent(typeof(TaskItem)))
+            {
+                e.Effects = DragDropEffects.Move;
+                ListBox listBox = (ListBox)sender;
+                listBox.Background = new SolidColorBrush(Colors.Red);
+            }
+
+            else
+            {
+                e.Effects = DragDropEffects.None;
+            }
+        }
+        private void ListBox_DragLeave(object sender, DragEventArgs e)
+        {
+            ListBox listBox = (ListBox)sender;
+            listBox.ClearValue(ListBox.BackgroundProperty);
+        }
+
+        private void ListBox_Drop(object sender, DragEventArgs e)
+        {
+            if(e.Data.GetDataPresent(typeof(TaskItem)))
+            {
+                TaskItem task = (TaskItem)e.Data.GetData(typeof(TaskItem));
+                ListBox targetListBox = (ListBox)sender;
+                Stage targetStage = (Stage)targetListBox.Tag;
+
+                if(task.stage != targetStage)
+                {
+                    task.stage.tasks.Remove(task);
+                    targetStage.tasks.Add(task);
+                    task.stage = targetStage;
+                    DrawKanban();
+                }
+            }
+        }
+
     }
 }
