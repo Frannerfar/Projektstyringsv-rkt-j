@@ -16,25 +16,32 @@ using Projektstyring.Models;
 namespace Projektstyring
 {
     /// <summary>
-    /// Interaction logic for ModalAddStage.xaml
+    /// Interaction logic for ModalStageAdd.xaml
     /// </summary>
-    public partial class ModalAddStage : Window
+    public partial class ModalStageAdd : Window
     {
         List<Stage> stages;
-        public ModalAddStage(List<Stage> bodil)
+
+        public ModalStageAdd(List<Stage> stages)
         {
             InitializeComponent();
-            this.stages = bodil;
+
+            this.stages = stages;
         }
 
-        private void AddStageButton_Click(object sender, RoutedEventArgs e)
+        private void ModalCancel(object sender, RoutedEventArgs e)
         {
-            string title = StageTitle.Text;
+            this.DialogResult = false;
+            this.Close();
+        }
 
-            Stage stage = new Stage(title, Colors.Beige);
+        private void ModalAddStage(object sender, RoutedEventArgs e)
+        {
+            string titleInput = Title.Text;
+
+            Stage stage = new Stage(titleInput, Colors.White);
 
             stages.Add(stage);
-
             this.DialogResult = true;
             this.Close();
 

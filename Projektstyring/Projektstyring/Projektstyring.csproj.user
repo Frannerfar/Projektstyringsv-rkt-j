@@ -5,7 +5,7 @@
     <Compile Update="Modal.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="ModalAddStage.xaml.cs">
+    <Compile Update="ModalStageAdd.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="ModalEditTask.xaml.cs">

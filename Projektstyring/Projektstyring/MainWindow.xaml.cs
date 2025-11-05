@@ -320,7 +320,7 @@ namespace Projektstyring
 
         private void AddStageButton_Click(object sender, RoutedEventArgs e)
         {
-            ModalAddStage window = new ModalAddStage(stages);
+            ModalStageAdd window = new ModalStageAdd(stages);
             bool? success = window.ShowDialog();
 
             if (success == true)
