@@ -38,6 +38,7 @@ namespace Projektstyring
             // Pre-defineret colors i .NET WPF
             Stage done = new Stage("Done", Colors.Green);
 
+<<<<<<< Updated upstream
             // Dinas tilføjelse af en ny stage, i HEX Color
             Stage dinaiseret = new Stage("Dinaiset", (Color)ColorConverter.ConvertFromString("#FFFF00FF"));
 
@@ -80,18 +81,6 @@ namespace Projektstyring
                 Colors.Black, 
                 doing);
 
-            TaskItem igang2 = new TaskItem(
-                "Underway",
-                "Ja",
-                "Dinasaur",
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                Colors.Yellow,
-                Colors.Black, 
-                doing);
-
             TaskItem klaret = new TaskItem(
                 "Færdig",
                 "Ja",
@@ -104,6 +93,7 @@ namespace Projektstyring
                 Colors.Black, 
                 done);
 
+<<<<<<< Updated upstream
             TaskItem klaret2 = new TaskItem(
                 "Klaret",
                 "Ja",
@@ -351,5 +341,70 @@ namespace Projektstyring
             }
 
         }
+
+        private void AddStageButton_Click(object sender, RoutedEventArgs e)
+        {
+            Modal2 window = new Modal2(stages);
+            bool? succes = window.ShowDialog();
+
+            if(succes != null && succes == true)
+            {
+                DrawKanban();
+            }
+        }
+
+        private void ListBoxItem_PreviewMouseMove(object sender, MouseEventArgs e)
+        {
+            if(e.OriginalSource is Button)
+            {
+                return;
+            }
+
+            if(e.LeftButton == MouseButtonState.Pressed)
+            {
+                ListBoxItem draggedItem = (ListBoxItem)sender;
+                TaskItem task = (TaskItem)draggedItem.Tag;
+                DragDrop.DoDragDrop(draggedItem, task, DragDropEffects.Move);
+            }
+        }
+
+        private void ListBox_DragEnter(object sender, DragEventArgs e)
+        {
+            if(e.Data.GetDataPresent(typeof(TaskItem)))
+            {
+                e.Effects = DragDropEffects.Move;
+                ListBox listBox = (ListBox)sender;
+                listBox.Background = new SolidColorBrush(Colors.Red);
+            }
+
+            else
+            {
+                e.Effects = DragDropEffects.None;
+            }
+        }
+        private void ListBox_DragLeave(object sender, DragEventArgs e)
+        {
+            ListBox listBox = (ListBox)sender;
+            listBox.ClearValue(ListBox.BackgroundProperty);
+        }
+
+        private void ListBox_Drop(object sender, DragEventArgs e)
+        {
+            if(e.Data.GetDataPresent(typeof(TaskItem)))
+            {
+                TaskItem task = (TaskItem)e.Data.GetData(typeof(TaskItem));
+                ListBox targetListBox = (ListBox)sender;
+                Stage targetStage = (Stage)targetListBox.Tag;
+
+                if(task.stage != targetStage)
+                {
+                    task.stage.tasks.Remove(task);
+                    targetStage.tasks.Add(task);
+                    task.stage = targetStage;
+                    DrawKanban();
+                }
+            }
+        }
+
     }
 }

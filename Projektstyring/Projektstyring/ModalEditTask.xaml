@@ -19,10 +19,11 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="1" Grid.Row="1">
-            <TextBox x:Name="Title" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="Text" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="Responsible" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-            <Button x:Name="ConfirmEditButton" Click="ConfirmEditButton_Click" />
+            <TextBox x:Name="Title" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Title" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="Text" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Text" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="Responsible" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Responsible" VerticalAlignment="Top" Width="120"/>
+            <ComboBox x:Name="DropDown"  />
+            <Button Content="Add Task"/>
             <Label x:Name="Title1" Content="Titel" HorizontalAlignment="Left" Margin="58,28,0,0" VerticalAlignment="Top"/>
             <Label Content="Beskrivelse" HorizontalAlignment="Left" Margin="58,74,0,0" VerticalAlignment="Top"/>
             <Label Content="Ansvarlig" HorizontalAlignment="Left" Margin="58,123,0,0" VerticalAlignment="Top"/>
