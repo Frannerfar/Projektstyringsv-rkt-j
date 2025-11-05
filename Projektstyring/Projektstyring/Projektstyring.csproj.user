@@ -5,5 +5,11 @@
     <Compile Update="Modal.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ModalAddStage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ModalEditTask.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

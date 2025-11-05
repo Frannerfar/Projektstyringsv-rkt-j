@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.ComponentModel;
+using System.Diagnostics;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -47,8 +48,7 @@ namespace Projektstyring
             stages.Add(notdoing);
             stages.Add(doing);
             stages.Add(done);
-            stages.Add(dinaiseret);
-            stages.Add(julehygge);
+  
 
             // Jeg har ændet Class navn fra Task til TaskItem, da Task er type til async operationer, som vi ikke har været igennem.
             // TODO: Vi mangler at lave constructor, så hver task bliver oprettet korrekt og derefter kan tilføjes til Stage liste.
@@ -66,79 +66,7 @@ namespace Projektstyring
                 notdoing);
 
 
-            TaskItem indkoeb = new TaskItem(
-                "Indkøb",
-                "Ja",
-                "Dinasaur",
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                Colors.DarkMagenta,
-                Colors.Black,
-                dinaiseret);
 
-            TaskItem indkoeb1 = new TaskItem(
-               "Indkøb",
-               "Ja",
-               "Dinasaur",
-               new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-               new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-               new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-               new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-               Colors.Yellow,
-               Colors.Black,
-               dinaiseret);
-
-            TaskItem indkoeb2 = new TaskItem(
-                "Indkøb",
-                "Ja",
-                "Dinasaur",
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                Colors.Blue,
-                Colors.Black,
-                dinaiseret);                
-
-            TaskItem indkoeb3 = new TaskItem(
-                "wfafafwfafwffaff",
-                "Ja",
-                "Dinasaur",
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                Colors.Red,
-                Colors.Black,
-                dinaiseret);
-
-
-            TaskItem indkoeb4 = new TaskItem(
-                "fwffwwfafffw",
-                "Ja",
-                "Dinasaur",
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                Colors.Red,
-                Colors.Black, 
-                dinaiseret);
-
-
-            TaskItem indkoeb5 = new TaskItem(
-                "dwddaddwd",
-                "Ja",
-                "Dinasaur",
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                Colors.Red,
-                Colors.Black, 
-                dinaiseret);
 
             TaskItem igang = new TaskItem(
                 "Igang",
@@ -188,92 +116,18 @@ namespace Projektstyring
                 Colors.Black, 
                 done);
 
-            TaskItem juleshoppetur = new TaskItem(
-                "hohoho",
-                "Nu er det snart jul igen",
-                "Dinasaur",
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
-                Colors.Magenta,
-                Colors.White, 
-                julehygge);
 
-            TaskItem juleshoppetur2 = new TaskItem(
-                "ho hoho",
-                "Dinasaur",
-                "Hvad du ønsker skal du få",
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
-                Colors.Magenta,
-                Colors.White, 
-                julehygge);
-
-            TaskItem juleshoppetur3 = new TaskItem(
-                "ho ho ho",
-                "Julegaveindkøb: Kul",
-                "Dinasaur",
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
-                Colors.Magenta,
-                Colors.White, 
-                julehygge);
-
-            TaskItem juleshoppetur4 = new TaskItem(
-                "ho  ho  ho",
-                "Indkøbsliste: Glögg, mandler, æbleskiver, grødris",
-                "Dinasaur",
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
-                Colors.Magenta,
-                Colors.White,
-                julehygge);
-
-            TaskItem juleshoppetur5 = new TaskItem(
-                "ho   ho   ho",
-                "Huhuuuu.. Nu er det snart jul",
-                "Dinasaur",
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
-                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
-                Colors.Magenta,
-                Colors.White,
-                julehygge);
 
 
 
 
             notdoing.tasks.Add(test);
-            notdoing.tasks.Add(indkoeb);
-            notdoing.tasks.Add(indkoeb2);
-            notdoing.tasks.Add(indkoeb3);
-            notdoing.tasks.Add(indkoeb4);
             doing.tasks.Add(igang);
             doing.tasks.Add(igang2);
             done.tasks.Add(klaret);
             done.tasks.Add(klaret2);
 
 
-            dinaiseret.tasks.Add(indkoeb);
-            dinaiseret.tasks.Add(indkoeb1);
-            dinaiseret.tasks.Add(indkoeb2);
-            dinaiseret.tasks.Add(indkoeb3);
-            dinaiseret.tasks.Add(indkoeb4);
-            dinaiseret.tasks.Add(indkoeb5);
-
-            julehygge.tasks.Add(juleshoppetur);
-            julehygge.tasks.Add(juleshoppetur2);
-            julehygge.tasks.Add(juleshoppetur3);
-            julehygge.tasks.Add(juleshoppetur4);
-            julehygge.tasks.Add(juleshoppetur5);
 
             DrawKanban();
             
@@ -321,6 +175,11 @@ namespace Projektstyring
                 
                 
                 ListBox listbox = new ListBox();
+                listbox.Drop += ListBox_Drop;
+                listbox.DragEnter += ListBox_DragEnter;
+                listbox.DragLeave += ListBox_DragLeave;
+                listbox.Tag = stages[i];
+                listbox.AllowDrop = true;
                 //listbox.Width = 200;
                 
                 Grid.SetColumn(listbox, i);
@@ -345,6 +204,11 @@ namespace Projektstyring
                     deleteButton.Click += DeleteButton_Click;
                     deleteButton.Tag = stages[i].tasks[j];
 
+                    Button editButton = new Button();
+                    editButton.Content = "Rediger";
+                    editButton.Click += EditButton_Click;
+                    editButton.Tag = stages[i].tasks[j];
+
                     TextBlock title = new TextBlock();
                     title.Text = stages[i].tasks[j].title;
 
@@ -361,6 +225,7 @@ namespace Projektstyring
                    
 
                     stackPanel.Children.Add(deleteButton);
+                    stackPanel.Children.Add(editButton);
                     stackPanel.Children.Add(title);
                     stackPanel.Children.Add(responsible);
                     stackPanel.Children.Add(text);
@@ -369,12 +234,28 @@ namespace Projektstyring
                     item.Margin = new Thickness(10);
                     item.BorderBrush = new SolidColorBrush(stages[i].tasks[j].borderColor);
                     item.BorderThickness = new Thickness(2);
-
+                    item.PreviewMouseMove += ListBoxItem_PreviewMouseMove;
+                    item.Tag = stages[i].tasks[j];
                     item.Content = stackPanel;
                     listbox.Items.Add(item);
 
                 }
             }
+        }
+
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            TaskItem task = (TaskItem)button.Tag;
+            ModalEditTask window = new ModalEditTask(task);
+            bool? success = window.ShowDialog();
+
+            if (success == true)
+            {
+                DrawKanban();
+            }
+
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
@@ -385,7 +266,7 @@ namespace Projektstyring
             TaskItem task = (TaskItem)button.Tag;
 
             task.stage.tasks.Remove(task);
-            task.stage = null;
+            //task.stage = null;
             DrawKanban();
                    
 
@@ -394,7 +275,81 @@ namespace Projektstyring
         private void AddTaskButton_Click(object sender, RoutedEventArgs e)
         {
             Modal window = new Modal();
-            window.ShowDialog();
+            bool? success = window.ShowDialog();
+
+            if (success == true)
+            {
+                DrawKanban();
+            }
+        }
+
+        private void AddStageButton_Click(object sender, RoutedEventArgs e)
+        {
+            ModalAddStage window = new ModalAddStage(stages);
+            bool? success = window.ShowDialog();
+
+            if (success == true)
+            {
+                DrawKanban();
+            }
+        }
+
+        private void ListBoxItem_PreviewMouseMove(object sender, MouseEventArgs e)
+        {
+            if(e.OriginalSource is Button)
+            {
+                return;
+            }
+
+            if(e.LeftButton == MouseButtonState.Pressed)
+            {
+                ListBoxItem draggedItem = (ListBoxItem)sender;
+                TaskItem taskItem = (TaskItem)draggedItem.Tag;
+                DragDrop.DoDragDrop(draggedItem, taskItem, DragDropEffects.Move);
+
+            }
+
+        }
+
+        private void ListBox_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(typeof(TaskItem)))
+            {
+                e.Effects = DragDropEffects.Move;
+                ListBox listbox = (ListBox)sender;
+                listbox.Background = new SolidColorBrush(Colors.Red);
+
+            }
+            else
+            {
+                e.Effects = DragDropEffects.None;
+            }
+
+        }
+
+        private void ListBox_DragLeave(object sender, DragEventArgs e)
+        {
+            ListBox listbox = (ListBox)sender;
+            listbox.ClearValue(ListBox.BackgroundProperty);
+        }
+
+        private void ListBox_Drop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(typeof(TaskItem)))
+            {
+                TaskItem task = (TaskItem)e.Data.GetData(typeof(TaskItem));
+                ListBox targetListBox = (ListBox) sender;
+                Stage targetStage = (Stage)targetListBox.Tag;
+
+                if(task.stage != targetStage)
+                {
+                    task.stage.tasks.Remove(task);
+                    targetStage.tasks.Add(task);
+                    task.stage = targetStage;
+                    DrawKanban();
+                }
+            }
+
         }
     }
 }
