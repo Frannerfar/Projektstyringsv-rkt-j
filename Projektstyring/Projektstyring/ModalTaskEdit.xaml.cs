@@ -47,7 +47,7 @@ namespace Projektstyring
             {
                 for (int i = 0; i < Dropdown.Items.Count; i++)
                 {
-                    if (Dropdown.Items.Contains(taskStage.title))
+                    if (Dropdown.Items[i].ToString() == taskStage.title)
                     {
                         Dropdown.SelectedIndex = i;
                         break;
