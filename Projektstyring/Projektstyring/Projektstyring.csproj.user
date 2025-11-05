@@ -8,7 +8,10 @@
     <Compile Update="ModalStageAdd.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="ModalEditTask.xaml.cs">
+    <Compile Update="ModalStageEdit.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ModalTaskEdit.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

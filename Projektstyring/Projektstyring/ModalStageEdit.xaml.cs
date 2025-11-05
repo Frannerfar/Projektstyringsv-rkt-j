@@ -16,26 +16,32 @@ using System.Windows.Shapes;
 namespace Projektstyring
 {
     /// <summary>
-    /// Interaction logic for ModalEditTask.xaml
+    /// Interaction logic for ModalStageEdit.xaml
     /// </summary>
-    public partial class ModalEditTask : Window
+    public partial class ModalStageEdit : Window
     {
-        TaskItem task;
-        public ModalEditTask(TaskItem task)
+        Stage stage;
+
+        public ModalStageEdit(Stage stage)
         {
             InitializeComponent();
-            this.task = task;
-            Title.Text = task.title;
-            Text.Text = task.text;
-            Responsible.Text = task.responsibleName;
+
+            this.stage = stage;
+            ModalTitle.Text = $"Edit Stage '{stage.title}'";
+            Title.Text = stage.title;
         }
 
-        private void ConfirmEditButton_Click(object sender, RoutedEventArgs e)
+        private void ModalEditStage(object sender, RoutedEventArgs e)
         {
-            task.title = Title.Text;
-            task.text = Text.Text;
-            task.responsibleName = Responsible.Text;
+            stage.title = Title.Text;
+
             this.DialogResult = true;
+            this.Close();
+        }
+
+        private void ModalCancel(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = false;
             this.Close();
         }
     }

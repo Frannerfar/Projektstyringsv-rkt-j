@@ -19,8 +19,8 @@
                     </Grid.ColumnDefinitions>
 
                     <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                        <Button x:Name="AddTaskButton" Margin="10, 0, 0, 0" Height="30" MinWidth="100" Click="AddTaskButton_Click" Background="DeepSkyBlue" >Add Task</Button>
-                        <Button x:Name="AddStageButton" Margin="10, 0, 0, 0" Height="30" MinWidth="100" Background="DeepSkyBlue" Click="AddStageButton_Click" >Add Stage</Button>
+                        <Button x:Name="AddTaskButton" Cursor="Hand" Margin="10, 0, 0, 0" Height="30" MinWidth="100" Click="AddTaskButton_Click" Background="DeepSkyBlue" >Add Task</Button>
+                        <Button x:Name="AddStageButton" Cursor="Hand" Margin="10, 0, 0, 0" Height="30" MinWidth="100" Background="DeepSkyBlue" Click="AddStageButton_Click" >Add Stage</Button>
                     </StackPanel>
                     <Grid x:Name="ViewGrid" Height="auto" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1">
 
@@ -28,11 +28,11 @@
 
                 </Grid>
             </TabItem>
-            <TabItem Header="TabItem">
+            <TabItem Header="Budget">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="31*"/>
-                        <ColumnDefinition Width="763*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                 </Grid>
             </TabItem>
