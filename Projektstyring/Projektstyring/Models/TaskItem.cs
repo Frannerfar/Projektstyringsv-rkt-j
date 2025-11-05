@@ -16,7 +16,7 @@ namespace Projektstyring.Models
         public DateTime endDateTime;
         public DateTime modifiedDateTime;
         public DateTime deadlineDateTime;
-        public Stage stage;
+        public Stage? stage;
 
         public TaskItem(string titleInput, 
                         string textInput, 

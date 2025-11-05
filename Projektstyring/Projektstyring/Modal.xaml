@@ -5,51 +5,109 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projektstyring"
         mc:Ignorable="d"
-        Title="Modal" Height="450" Width="800">
+        Title="Modal" Height="450" Width="500">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="50"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+    
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Column="1" Grid.Row="1">
-            <TextBox x:Name="Title" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Title" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="Text" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Text" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="Responsible" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Responsible" VerticalAlignment="Top" Width="120"/>
-            <ComboBox x:Name="DropDown"  />
-            <Button Content="Add Task" Click="ModalAddTask"/>
-            <Label x:Name="Title1" Content="Titel" HorizontalAlignment="Left" Margin="58,28,0,0" VerticalAlignment="Top"/>
-            <Label Content="Beskrivelse" HorizontalAlignment="Left" Margin="58,74,0,0" VerticalAlignment="Top"/>
-            <Label Content="Ansvarlig" HorizontalAlignment="Left" Margin="58,123,0,0" VerticalAlignment="Top"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="50" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="1"
+                   Text="Create New Task"
+                   FontSize="20"
+                   FontWeight="Bold"
+                   Foreground="#333"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,20"/>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0"
+                       Text="Title:"
+                       VerticalAlignment="Center"
+                       Margin="0,5"/>
+            <TextBox x:Name="Title"
+                     Grid.Row="0" Grid.Column="1"
+                     Margin="0,5"
+                     Padding="5"
+                     MinWidth="180"
+                     TextWrapping="Wrap"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="0"
+                       Text="Description:"
+                       VerticalAlignment="Top"
+                       Margin="0,5"/>
+            <TextBox x:Name="Text"
+                     Grid.Row="1" Grid.Column="1"
+                     Margin="0,5"
+                     Padding="5"
+                     MinWidth="180"
+                     TextWrapping="Wrap"
+                     AcceptsReturn="True"
+                     Height="100"
+                     VerticalScrollBarVisibility="Auto"/>
+
+            <TextBlock Grid.Row="2" Grid.Column="0"
+                       Text="Responsible:"
+                       VerticalAlignment="Center"
+                       Margin="0,5"/>
+            
+            <TextBox x:Name="Responsible"
+                     Grid.Row="2" Grid.Column="1"
+                     Margin="0,5"
+                     Padding="5"
+                     MinWidth="180"
+                     TextWrapping="Wrap"/>
+
+            <TextBlock Grid.Row="3" Grid.Column="0"
+                       Text="Stage:"
+                       VerticalAlignment="Center"
+                       Margin="0,5"/>
+            <ComboBox x:Name="Dropdown"
+                      Grid.Row="3" Grid.Column="1"
+                      Margin="0,5"
+                      Padding="5"
+                      MinWidth="180"/>
+        </Grid>
+
+        <StackPanel Grid.Row="5" Grid.Column="1"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Margin="0,20,0,0">
+            <Button Content="Cancel"
+                    Width="100"
+                    Margin="0,0,10,0"
+                    Click="ModalCancel"
+                    Background="Red"
+                    Foreground="White"/>
+
+            <Button Content="Add Task"
+                    Width="100"
+                    Height="30"
+                    Background="#4CAF50"
+                    Foreground="White"
+                    Click="ModalAddTask"/>
         </StackPanel>
-
-    
-            <TextBlock
-    
-                Grid.Row="0"
-            FontSize="28"
-            Text="Opret Task" Margin="0,0,0,161" />
-
-            <TextBlock
-                FontSize="8"
-                Text=" Navn på Task" Height="20" VerticalAlignment="Top" Margin="25,72,0,0" />
-            <Label Content="Indtast navn" HorizontalAlignment="Center" Margin="0,90,0,0" VerticalAlignment="Top" Width="750" Height="29"/>
-            <Rectangle HorizontalAlignment="Center" Margin="0,88,0,303" Stroke="Black" Width="750"/>
-
-            <TextBlock
-     FontSize="8"
-     Height="15" VerticalAlignment="Top" Margin="25,164,-5,0" ><Run Language="da-dk" Text="Beskrivelse"/></TextBlock>
-            <Label Content="Skriv beskrivelse" HorizontalAlignment="Center" VerticalAlignment="Top" Width="750" Height="29" RenderTransformOrigin="0.497,5.477" Margin="0,207,0,0"/>
-            <Rectangle HorizontalAlignment="Center" Margin="0,185,0,23" Stroke="Black" Width="750"/>
-
-
-
-       
-
     </Grid>
 </Window>

@@ -7,6 +7,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -20,38 +21,24 @@ namespace Projektstyring
     public partial class MainWindow : Window
     {
         List<Stage> stages = new List<Stage>();
+        //Dictionary<Stage, ListBox> stageListBoxes = new();
+
         public MainWindow()
         {
             InitializeComponent();
-            // Efter lidt research, så skal vi bruge Color fra System.Windows.Media, da det er til WPF.
-            // Har lavet eksempler på de 3 stages, som alle tager imod colors på forskellige måder.
-            // Vi kan gennemgå det sammen, hvis der er spørgsmål til color codes.
-
-           
 
             // RGBA Color
-            Stage notdoing = new Stage("Not Doing", Color.FromArgb(100, 100, 100, 100));
+            Stage toDo = new Stage("To-Do", Color.FromArgb(100, 100, 100, 100));
 
             // HEX Color
-            Stage doing = new Stage("Doing", (Color)ColorConverter.ConvertFromString("#FFB0B0B0"));
+            Stage inProgress = new Stage("In Progress", (Color)ColorConverter.ConvertFromString("#FFB0B0B0"));
 
             // Pre-defineret colors i .NET WPF
             Stage done = new Stage("Done", Colors.Green);
 
-            // Dinas tilføjelse af en ny stage, i HEX Color
-            Stage dinaiseret = new Stage("Dinaiset", (Color)ColorConverter.ConvertFromString("#FFFF00FF"));
-
-            // Dinas tilføjelse af endnu en ny stage, i HEX Color
-            Stage julehygge = new Stage("Julehygge", (Color)ColorConverter.ConvertFromString("#80FF00FF"));
-
-
-            stages.Add(notdoing);
-            stages.Add(doing);
+            stages.Add(toDo);
+            stages.Add(inProgress);
             stages.Add(done);
-  
-
-            // Jeg har ændet Class navn fra Task til TaskItem, da Task er type til async operationer, som vi ikke har været igennem.
-            // TODO: Vi mangler at lave constructor, så hver task bliver oprettet korrekt og derefter kan tilføjes til Stage liste.
 
             TaskItem test = new TaskItem(
                 "Feje gulv",
@@ -63,10 +50,7 @@ namespace Projektstyring
                 new DateTime(new DateOnly(2025, 11, 6), new TimeOnly(9, 45)),
                 Colors.Green,
                 Colors.Blue,
-                notdoing);
-
-
-
+                toDo);
 
             TaskItem igang = new TaskItem(
                 "Igang",
@@ -78,10 +62,10 @@ namespace Projektstyring
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 Colors.Yellow,
                 Colors.Black, 
-                doing);
+                inProgress);
 
             TaskItem igang2 = new TaskItem(
-                "Igang",
+                "Underway",
                 "Ja",
                 "Dinasaur",
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
@@ -89,8 +73,8 @@ namespace Projektstyring
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
                 Colors.Yellow,
-                Colors.Black,
-                doing);
+                Colors.Black, 
+                inProgress);
 
             TaskItem klaret = new TaskItem(
                 "Færdig",
@@ -103,7 +87,6 @@ namespace Projektstyring
                 Colors.Green,
                 Colors.Black, 
                 done);
-
 
             TaskItem klaret2 = new TaskItem(
                 "Klaret",
@@ -118,33 +101,15 @@ namespace Projektstyring
                 done);
 
 
+            toDo.tasks.Add(test);
 
+            inProgress.tasks.Add(igang);
+            inProgress.tasks.Add(igang2);
 
-
-
-            notdoing.tasks.Add(test);
-            doing.tasks.Add(igang);
-            doing.tasks.Add(igang2);
             done.tasks.Add(klaret);
             done.tasks.Add(klaret2);
 
-
-
             DrawKanban();
-            
-
-
-            //for (int i = 0; i < notdoing.tasks.Count; i++)
-            //{
-            //    NotDoingList.Items.Add(notdoing.tasks[i].title);
-            //}
-
-            //for (int i = 0; i < julehygge.tasks.Count; i++)
-            //{
-            //    JulehyggeList.Items.Add(julehygge.tasks[i].title);
-            //}
-
-
 
         } 
         private void DrawKanban()
@@ -174,8 +139,11 @@ namespace Projektstyring
                 Grid.SetRow(stageLabel, 0);
                 Grid.SetColumn(stageLabel, i);
                 
-                
                 ListBox listbox = new ListBox();
+                listbox.HorizontalContentAlignment = HorizontalAlignment.Stretch;
+                listbox.IsHitTestVisible = true;
+                listbox.SelectionMode = SelectionMode.Single;
+                listbox.Focusable = false;
                 listbox.Drop += ListBox_Drop;
                 listbox.DragEnter += ListBox_DragEnter;
                 listbox.DragLeave += ListBox_DragLeave;
@@ -191,55 +159,125 @@ namespace Projektstyring
 
                 for (int j = 0; j < stages[i].tasks.Count; j++)
                 {
-                    //DinaiseretList.Items.Add(dinaiseret.tasks[i].title);
-
-                    //Laver et variabel der hedder item af typen listboxitem
-
                     ListBoxItem item = new ListBoxItem();
 
-                    StackPanel stackPanel = new StackPanel();
+                    Grid cardGrid = new Grid();
+                    cardGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+                    cardGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+                    cardGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+                    cardGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+                    cardGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+                    cardGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+                    cardGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+                    cardGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+                    cardGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
 
-                    Button deleteButton = new Button();
-
-                    deleteButton.Content = "Slet";
-                    deleteButton.Click += DeleteButton_Click;
-                    deleteButton.Tag = stages[i].tasks[j];
+                    StackPanel upperButtonPanel = new StackPanel();
+                    upperButtonPanel.Orientation = Orientation.Horizontal;
+                    upperButtonPanel.HorizontalAlignment = HorizontalAlignment.Right;
+                    upperButtonPanel.VerticalAlignment = VerticalAlignment.Center;
+                    Grid.SetRow(upperButtonPanel, 0);
+                    Grid.SetColumn(upperButtonPanel, 0);
 
                     Button editButton = new Button();
-                    editButton.Content = "Rediger";
+                    //deleteButton.Width = 100;
+                    editButton.Content = "Edit";
+                    editButton.FontSize = 14;
+                    editButton.FontWeight = FontWeights.Regular;
+                    editButton.Background = new SolidColorBrush(Colors.GreenYellow);
+                    editButton.Padding = new Thickness(8, 3, 8, 3);
                     editButton.Click += EditButton_Click;
                     editButton.Tag = stages[i].tasks[j];
 
+                    Button deleteButton = new Button();
+                    //deleteButton.Width = 100;
+                    deleteButton.Content = "X";
+                    deleteButton.FontSize = 14;
+                    deleteButton.FontWeight = FontWeights.Regular;
+                    deleteButton.Margin = new Thickness(10, 0, 0, 0);
+                    deleteButton.Background = new SolidColorBrush(Colors.Red);
+                    deleteButton.Padding = new Thickness(8, 3, 8, 3);
+                    deleteButton.Click += DeleteButton_Click;
+                    deleteButton.Tag = stages[i].tasks[j];
+
+
+                    upperButtonPanel.Children.Add(editButton);
+                    upperButtonPanel.Children.Add(deleteButton);
+
+
+
                     TextBlock title = new TextBlock();
                     title.Text = stages[i].tasks[j].title;
-
-                    TextBlock responsible = new TextBlock();
-                    responsible.Text = stages[i].tasks[j].responsibleName;
+                    title.FontSize = 16;
+                    title.FontWeight = FontWeights.Bold;
+                    Grid.SetRow(title, 1);
 
                     TextBlock text = new TextBlock();
                     text.Text = stages[i].tasks[j].text;
+                    text.TextWrapping = TextWrapping.Wrap;
+                    text.Margin = new Thickness(0, 10, 0, 0);
+                    Grid.SetRow(text, 2);
 
-                    TextBlock datetime = new TextBlock();
-                    datetime.Text = $"startdato {stages[i].tasks[j].startDateTime}";
+                    TextBlock responsible = new TextBlock();
+                    responsible.Text = $"Responsible: {stages[i].tasks[j].responsibleName}";
+                    responsible.Margin = new Thickness(0, 10, 0, 0);
+                    Grid.SetRow(responsible, 3);
 
-                    CardUI Card = new CardUI(Colors.Blue, Colors.Black); //Vi laver en ny type CardUI der kaldes Card, den skabes først når vi siger = new cardUI(hvilke colors vi vil have vælges her, efter de krav contructoren beder om)
-                   
 
-                    stackPanel.Children.Add(deleteButton);
-                    stackPanel.Children.Add(editButton);
-                    stackPanel.Children.Add(title);
-                    stackPanel.Children.Add(responsible);
-                    stackPanel.Children.Add(text);
-                    stackPanel.Children.Add(datetime);
-                    item.Background = new SolidColorBrush(stages[i].tasks[j].backgroundColor);
+                    TextBlock startDateTime = new TextBlock();
+                    startDateTime.Text = $"Start Date: {stages[i].tasks[j].startDateTime}";
+                    startDateTime.Margin = new Thickness(0, 10, 0, 0);
+                    Grid.SetRow(startDateTime, 4);
+
+                    TextBlock deadlineDateTime = new TextBlock();
+                    deadlineDateTime.Text = $"Deadline Date: {stages[i].tasks[j].deadlineDateTime}";
+                    deadlineDateTime.Margin = new Thickness(0, 10, 0, 0);
+                    Grid.SetRow(deadlineDateTime, 5);
+
+                    TextBlock modifiedDateTime = new TextBlock();
+                    modifiedDateTime.Text = $"Modified Date: {stages[i].tasks[j].modifiedDateTime}";
+                    modifiedDateTime.Margin = new Thickness(0, 10, 0, 0);
+                    Grid.SetRow(modifiedDateTime, 6);
+
+                    TextBlock endDateTime = new TextBlock();
+                    endDateTime.Text = $"End Date: {stages[i].tasks[j].endDateTime}";
+                    endDateTime.Margin = new Thickness(0, 10, 0, 0);
+                    Grid.SetRow(endDateTime, 7);
+
+                    cardGrid.Children.Add(upperButtonPanel);
+                    cardGrid.Children.Add(title);
+                    cardGrid.Children.Add(text);
+                    cardGrid.Children.Add(responsible);
+                    cardGrid.Children.Add(startDateTime);
+                    cardGrid.Children.Add(deadlineDateTime);
+                    cardGrid.Children.Add(modifiedDateTime);
+                    cardGrid.Children.Add(endDateTime);
+
+                    Border roundedBorder = new Border
+                    {
+                        CornerRadius = new CornerRadius(10),
+                        BorderThickness = new Thickness(1),
+                        BorderBrush = new SolidColorBrush(stages[i].tasks[j].borderColor),
+                        Background = new SolidColorBrush(stages[i].tasks[j].backgroundColor),
+                        HorizontalAlignment = HorizontalAlignment.Stretch,
+                        //Margin = new Thickness(10),
+                        Padding = new Thickness(10),
+                        Child = cardGrid
+                    };
+
+                    //item.Background = new SolidColorBrush(stages[i].tasks[j].backgroundColor);
                     item.Margin = new Thickness(10);
-                    item.BorderBrush = new SolidColorBrush(stages[i].tasks[j].borderColor);
-                    item.BorderThickness = new Thickness(2);
+                    //item.BorderBrush = new SolidColorBrush(stages[i].tasks[j].borderColor);
+                    //item.BorderThickness = new Thickness(2);
+                    item.Content = roundedBorder;
+                    item.Focusable = false;
+                    item.IsHitTestVisible = true;
                     item.PreviewMouseMove += ListBoxItem_PreviewMouseMove;
                     item.Tag = stages[i].tasks[j];
-                    item.Content = stackPanel;
                     listbox.Items.Add(item);
 
+                    //item.Content = cardGrid;
+                    //listbox.Items.Add(item);
                 }
             }
         }
@@ -261,16 +299,12 @@ namespace Projektstyring
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine("Vi deleter en ting eller et eller andet");
-
             Button button = (Button)sender;
             TaskItem task = (TaskItem)button.Tag;
 
             task.stage.tasks.Remove(task);
-            //task.stage = null;
+            task.stage = null;
             DrawKanban();
-                   
-
         }
 
         private void AddTaskButton_Click(object sender, RoutedEventArgs e)
@@ -352,6 +386,5 @@ namespace Projektstyring
             }
 
         }
-
     }
 }

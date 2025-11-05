@@ -21,18 +21,19 @@ namespace Projektstyring
     public partial class Modal : Window
     {
         List<Stage> stages;
+        Color selectedColor;
 
         public Modal(List<Stage> stages)
         {
             InitializeComponent();
+
             this.stages = stages;
 
-            for(int i = 0; i < stages.Count; i++)
+            for (int i = 0; i < stages.Count; i++) 
             {
-                DropDown.Items.Add(stages[i].title);
-                DropDown.SelectedIndex = 0;
+                Dropdown.Items.Add(stages[i].title);
+                Dropdown.SelectedIndex = 0;
             }
-
         }
 
         private void ModalAddTask(object sender, RoutedEventArgs e)
@@ -40,21 +41,28 @@ namespace Projektstyring
             string titleInput = Title.Text;
             string textInput = Text.Text;
             string responsibleInput = Responsible.Text;
-            Stage selectedStages = stages[DropDown.SelectedIndex];
+            Stage selectedStage = stages[Dropdown.SelectedIndex];
 
             TaskItem task = new TaskItem(titleInput,
-                                textInput,
-                                responsibleInput,
-                                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                                new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 15)),
-                                Colors.Yellow,
-                                Colors.Black,
-                                selectedStages);
+                                        textInput,
+                                        responsibleInput,
+                                        new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
+                                        new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
+                                        new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
+                                        new DateTime(new DateOnly(2025, 12, 18), new TimeOnly(15, 30)),
+                                        selectedColor,
+                                        Colors.Black,
+                                        selectedStage);
 
-            selectedStages.tasks.Add(task);
+            selectedStage.tasks.Add(task);
             this.DialogResult = true;
+            this.Close();
+
+        }
+
+        private void ModalCancel(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult= false;
             this.Close();
         }
     }
