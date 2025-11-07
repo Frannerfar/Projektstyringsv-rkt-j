@@ -486,16 +486,27 @@ namespace Projektstyring
             }
         }
 
+        //Denne funktion kører når der trykkes på "Edit Stage"-button
         private void EditStageButton_Click(object sender, RoutedEventArgs e)
         {
-            Button button = (Button)sender;
-            Stage stage = (Stage)button.Tag;
-            ModalStageEdit window = new ModalStageEdit(stage);
-            bool? success = window.ShowDialog();
+            //"sender" og "e" er variabel navne. "object" er datatypen, og det samme med"RoutedEventArgs"
 
-            if (success == true)
+            Button button = (Button)sender; // Da vi ved, at senderen altid er en knap, kan vi (typecaste) til at være datatypen "Button"
+                                               //Gemmes i variablen "button", som også er datatypen "Button"
+            Stage stage = (Stage)button.Tag; // Da vi ved, at vi har sat en reference til tilhørende stage, fast på knappens .Tag 
+                                             // kan vi typecaste button.Tag til at være af typen Stage
+                                             //Gemmes i variablen "stage", som også er datatypen "Stage"
+
+            ModalStageEdit window = new ModalStageEdit(stage); //Her instantierer vi redigeringsvinduet for stage, og den tager imod hvilket stage vi skal redigere
+                                                                //Gemmer instantieringsobjektet i windowvariablen 
+            bool? success = window.ShowDialog(); //Her bruger vi referencen window til at åbne redigeringsvinduet
+                                                // Gennem ShowDialog() 
+                                                // ShowDialog returnerer DialogResult, som enten er True, False eller Null
+                                                // Dette gemmes i variablen success
+
+            if (success == true) //Hvis success er true, så kører koden inde i kodeblokken
             {
-                DrawKanban();
+                DrawKanban(); //Kalder metode, der opdaterer UI'en
             }
         }
 
