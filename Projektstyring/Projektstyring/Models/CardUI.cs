@@ -9,8 +9,8 @@ namespace Projektstyring.Models
 {
     public class CardUI
     {
-        public Color backgroundColor; //attributes
-        public Color borderColor;
+        public Color backgroundColor; //attribute, af typen Color
+        public Color borderColor; // attribute, af typen Color
 
         public CardUI(Color backgroundColorInput, Color borderColorInput) //Constructoren: Vi sætter reglerne for de ting vi kræver, der skal defineres ved oprettelse
         {
