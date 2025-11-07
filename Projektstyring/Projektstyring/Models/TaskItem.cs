@@ -27,8 +27,6 @@ namespace Projektstyring.Models
                         string responsibleNameInput, 
                         DateTime startDateTimeInput,
                         DateTime deadlineDateTimeInput,
-                        //DateTime endDateTimeInput, 
-                        //DateTime modifiedDateTimeInput, 
                         Color backgroundColerInput, 
                         Color borderColorInput, 
                         Stage stageInput) 

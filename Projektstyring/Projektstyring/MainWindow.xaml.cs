@@ -473,7 +473,8 @@ namespace Projektstyring
                 DrawKanban();
             }
         }
-
+        // Denne knap aktivere et andet WPF-vindue, baseret på brugerens svar, om de har trykket på cancel
+        // eller på opret stage. Hvis brugeren opretter noget, kører if sætningen, og tegner vinduet op igen med opdatering
         private void AddStageButton_Click(object sender, RoutedEventArgs e)
         {
             ModalStageAdd window = new ModalStageAdd(stages);
@@ -523,7 +524,12 @@ namespace Projektstyring
                 DrawKanban();
             }
         }
-
+        // Dette er et metode kalde over drag funktionaliteten 
+        // 1. Den første if sætning, siger at hvis brugeren klikker på en knap,
+        // så skal drag funktionen ikke tages i brug. 
+        // 2. I den anden if sætning, hvis brugeren venstre klikker og bevæger musen starter drag-effekten 
+        // Vi definere hvilket element der skal kunne flyttes,
+        // DragDrop.DoDragDrop = fortæller vores system at vi trækker objektet (taskItem) fra en liste. 
         private void ListBoxItem_PreviewMouseMove(object sender, MouseEventArgs e)
         {
             if(e.OriginalSource is Button)
@@ -538,7 +544,10 @@ namespace Projektstyring
                 DragDrop.DoDragDrop(draggedItem, taskItem, DragDropEffects.Move);
             }
         }
-
+        // Dette er også et metode kald:
+        //1. if sætningen siger at hvis du trækker et TaskItem ind over et stage,
+        // skifter baggrundsfarven.
+        // 2. Ellers hvis det du trækker ikke er en TaskItem kan du ikke drop den. 
         private void ListBox_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(typeof(TaskItem)))
@@ -553,13 +562,16 @@ namespace Projektstyring
                 e.Effects = DragDropEffects.None;
             }
         }
-
+        // Metode kald
+        // Viser at når musen med TaskItem forlader listen, vil baggrundsfarven skifte tilbage til normal.
         private void ListBox_DragLeave(object sender, DragEventArgs e)
         {
             ListBox listbox = (ListBox)sender;
             listbox.ClearValue(ListBox.BackgroundProperty);
         }
-
+        //Metode kald der håndtere flytningen af TaskItem
+        // Når brugeren slipper TaskItem, får vi fat i den
+        // task og den liste (stage) den er blevet leveret over i(targetstage).  
         private void ListBox_Drop(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(typeof(TaskItem)))
@@ -570,12 +582,12 @@ namespace Projektstyring
 
                 if(task.stage != targetStage && task.stage != null)
                 {
-                    task.stage.tasks.Remove(task);
-                    targetStage.tasks.Add(task);
-                    task.stage = targetStage;
-                    DrawKanban();
+                    task.stage.tasks.Remove(task);      //Fjern fra det gamle stage 
+                    targetStage.tasks.Add(task);        //Tilføje til det nye stage
+                    task.stage = targetStage;           //Her opdaterer vi 
+                    DrawKanban();                       //Vi viser vinduet med den ny opdatering 
                 }
-                targetListBox.ClearValue(ListBox.BackgroundProperty);
+                targetListBox.ClearValue(ListBox.BackgroundProperty); // baggrundsfarven bliver sat tilbage til normal igen
             }
         }
     }
