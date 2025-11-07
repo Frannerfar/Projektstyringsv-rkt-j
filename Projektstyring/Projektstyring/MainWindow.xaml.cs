@@ -441,12 +441,24 @@ namespace Projektstyring
 
         private void DeleteTaskButton_Click(object sender, RoutedEventArgs e)
         {
+            // her tager vi 'sender' som er den knap der bliver trykket på og trigger funktionen, og gemmer 'sender' i 'button' af typen Button 
+            // her typecaster vi 'sender' til Button, fordi vi ved det kun er en knap der kan trigger denne funktion
             Button button = (Button)sender;
+            // her tager vi så 'button' hvor vi ved at den skal have noget bestemt data med i .Tag attributen og gemmer den i 'task' af type TaskItem
+            // her typecaster vi button.Tag til TaskItem, fordi vi ved at knappen har TaskItem på sig i .Tag
             TaskItem task = (TaskItem)button.Tag;
 
-            if (task.stage != null) {
+            // her køres der en if sætning.
+            // hvis den valgte task ikke har null i stage, må vi forvente at tasken har et stage og opdatere staget og task
+            if (task.stage != null) 
+            {
+                // først tager vi den valgte task, derefter tilgår vi det stage den har reference til
+                // hvor vi så tilgår den liste i staget hvor tasks ligger
+                // til slut fjerner vi så den valgte task fra den liste
                 task.stage.tasks.Remove(task);
+                // den valgte task har stadig en reference til det stage det tilhørte og det fjerner vi ved at sætte taskens stage lig med null
                 task.stage = null;
+                // til sidst kalder koden så DrawKanban() som opdaterer kanban UI
                 DrawKanban();
             }
         }
@@ -488,16 +500,26 @@ namespace Projektstyring
 
         private void DeleteStageButton_Click(object sender, RoutedEventArgs e)
         {
+            // her tager vi 'sender' som er den knap der bliver trykket på og trigger funktionen, og gemmer 'sender' i 'button' af typen Button
+            // her typecaster vi 'sender' til Button, fordi vi ved det kun er en knap der kan trigger funktionen
             Button button = (Button)sender;
+            // her tager vi så 'button' hvor vi ved at den har noget bestemt data med i .Tag attributen og gemmer den i 'stage' af typen Stage
+            // her typecaster vi button.Tag til Stage, fordi vi ved at knappen har Stage på sig i .Tag
             Stage stage = (Stage)button.Tag;
 
+            // her køres der en if statement
+            // hvis det valgte stage indeholder mere end 0 tasks, vil det altså sige at staget ikke kan slettes og MessageBox vises
             if(stage.tasks.Count > 0)
             {
                 MessageBox.Show("Please remove all tasks from stage, before removing stage");
             }
+            // her køres et else statement
+            // hvis det valgte stage indeholder 0 tasks, vil det altså sige at staget kan slettes
             else
             {
+                // her tilgår vi listen med stages og fjerner det valgte stage
                 stages.Remove(stage);
+                // til sidst kalder koden DrawKanban() som opdaterer kanban UI
                 DrawKanban();
             }
         }
